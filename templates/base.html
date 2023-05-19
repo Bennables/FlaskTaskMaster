@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- type of code that flask uses-->
+    <!-- getting the stylesheet -->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/main.css') }}">
+    <!--type of code that flask uses-->
     {% block head %}{% endblock %}
 </head>
 <body>

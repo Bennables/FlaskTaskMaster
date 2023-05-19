@@ -1,3 +1,4 @@
 navigate to this file
 in terminal:
+vitualenv env
 .\env\Scripts\activate
