@@ -24,7 +24,8 @@ class Todo(db.Model):
 app.app_context().push()
 
 #settin gup rout
-@app.route('/')
+#post get means we can send data rather than only get
+@app.route('/',methods= ['POST','GET'])
 
 #temp inheritance, create one master and it'll be seen in other ones
 def index():
