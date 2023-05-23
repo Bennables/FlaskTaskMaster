@@ -1,11 +1,14 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template,url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABAS_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 #database initialized with data from app
+
 db = SQLAlchemy(app)
+
+
 
 class Todo(db.Model):
     #I assume this is the number for the task
@@ -15,6 +18,10 @@ class Todo(db.Model):
     completed = db.Column(db.Integer, default = 0)
     date_created = db.Column(db.DateTime, default = datetime.utcnow)
 
+    def __repr__(self):
+        return '<Task %r' % self.id
+
+app.app_context().push()
 
 #settin gup rout
 @app.route('/')
