@@ -1,7 +1,6 @@
-from flask import Flask, render_template,url_for
+from flask import Flask, render_template,url_for,request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from requests import request
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -26,16 +25,16 @@ app.app_context().push()
 
 #settin gup rout
 #post get means we can send data rather than only get
-@app.route('/',methods= ['POST','GET'])
+@app.route('/',methods = ['POST','GET'])
 
 #temp inheritance, create one master and it'll be seen in other ones
 def index():
-    if request.method == "POST":
+    if request.method == 'POST':
         pass
+        return 'hi'
     else:
-        pass
+        return render_template('index.html')
 
-    return render_template('index.html')
 
 #to make sure it's ran directly from orig file rather than with import
 if __name__ == "__main__":
